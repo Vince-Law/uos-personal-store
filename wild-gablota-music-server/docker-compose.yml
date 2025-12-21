@@ -9,14 +9,12 @@ services:
   db:
     image: >-
       postgres:16-alpine@sha256:d898b0b78a2627cb4ee63464a14efc9d296884f1b28c841b0ab7d7c42f1fffdf
-    user: '1000:1000'
     restart: on-failure
     stop_grace_period: 1m
     environment:
       POSTGRES_USER: musicuser
       POSTGRES_PASSWORD: musicpassword
       POSTGRES_DB: music_stream
-      PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
     healthcheck:
@@ -31,7 +29,6 @@ services:
     image: maksimab/music-server:latest
     ports:
         - "1208:3000"
-    user: '1000:1000'
     restart: on-failure
     stop_grace_period: 1m
     init: true
