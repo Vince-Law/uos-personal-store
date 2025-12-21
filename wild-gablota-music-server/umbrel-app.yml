@@ -1,0 +1,51 @@
+manifestVersion: 1
+id: music-stream
+category: media
+name: Music Stream
+version: "1.0.0"
+tagline: Self-hosted music library streaming server
+description: >-
+  Music Stream is a self-hosted music library streaming server that allows you to
+  stream your personal music collection from anywhere. Built with Node.js, Express,
+  and PostgreSQL, it provides a modern API for managing and streaming your local
+  music files.
+
+
+  Features:
+
+    - Stream your local music library from anywhere
+    - Automatic music file scanning and metadata extraction
+    - Album and artist management with cover art support
+    - Offline support with local database synchronization
+    - Incremental scanning for detecting new files
+    - User authentication with JWT
+    - RESTful API for easy integration
+    - Supports various audio formats through FFmpeg
+
+
+  The app provides a complete backend API that can be accessed through a web interface
+  or mobile app. Your music files remain on your Umbrel device while you can stream
+  them securely from any location through the Cloudflare tunnel.
+
+developer: VinceLaw
+website: https://github.com/Vince-Law/music-stream
+dependencies: []
+repo: https://github.com/Vince-Law/music-stream
+support: https://github.com/Vince-Law/music-stream
+port: 3000
+gallery: []
+path: ""
+defaultUsername: admin
+defaultPassword: admin123
+releaseNotes: >-
+  Initial release of Music Stream for Umbrel.
+
+    - Full music library streaming capabilities
+    - PostgreSQL database integration
+    - Automatic metadata extraction
+    - JWT authentication
+    - Offline support with local database
+    - Incremental file scanning
+    - Album cover art management
+
+torOnly: false
