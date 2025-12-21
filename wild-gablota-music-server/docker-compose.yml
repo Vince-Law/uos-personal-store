@@ -39,7 +39,7 @@ services:
       NODE_ENV: production
       PORT: 3000
       DATABASE_URL: >-
-        postgresql://musicuser:musicpassword@music-stream_db_1:5432/music_stream?schema=public
+        postgresql://musicuser:musicpassword@wild-gablota-music-server_db_1:5432/music_stream?schema=public
       JWT_SECRET: ${APP_SEED}
       JWT_EXPIRES_IN: 604800
       ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
