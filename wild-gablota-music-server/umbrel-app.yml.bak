@@ -27,7 +27,7 @@ description: >-
   or mobile app. Your music files remain on your Umbrel device while you can stream
   them securely from any location through the Cloudflare tunnel.
 
-developer: brmvch-dev
+developer: VinceLaw
 website: https://github.com/Vince-Law/music-stream
 dependencies: []
 repo: https://github.com/Vince-Law/music-stream
