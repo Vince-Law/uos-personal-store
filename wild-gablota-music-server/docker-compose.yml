@@ -3,8 +3,11 @@ services:
   app_proxy:
     environment:
       APP_HOST: wild-gablota-music-server_app_1
-      APP_PORT: 1208
+      APP_PORT: 3000
       PROXY_AUTH_ADD: 'false'
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
     container_name: wild-gablota-music-server_app_proxy_1
   db:
     image: >-
@@ -15,6 +18,9 @@ services:
       POSTGRES_USER: musicuser
       POSTGRES_PASSWORD: musicpassword
       POSTGRES_DB: music_stream
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
     healthcheck:
@@ -27,8 +33,6 @@ services:
     container_name: wild-gablota-music-server_db_1
   app:
     image: maksimab/music-server:latest
-    ports:
-        - "1208:3000"
     restart: on-failure
     stop_grace_period: 1m
     init: true
@@ -41,6 +45,9 @@ services:
       JWT_EXPIRES_IN: 604800
       ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
       ADMIN_PASSWORD: ${ADMIN_PASSWORD:-admin123}
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
     volumes:
       - ${UMBREL_ROOT}/home/Downloads/music:/music
       - ${APP_DATA_DIR}/data/covers:/app/public/covers
