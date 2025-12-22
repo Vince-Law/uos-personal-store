@@ -2,7 +2,7 @@ manifestVersion: 1
 id: wild-gablota-music-server
 category: media
 name: Music Stream
-version: "1.1.0"
+version: "1.2.0"
 tagline: Self-hosted music library streaming server
 description: >-
   Music Stream is a self-hosted music library streaming server that allows you to
