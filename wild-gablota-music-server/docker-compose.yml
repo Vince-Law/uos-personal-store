@@ -32,7 +32,7 @@ services:
       retries: 5
     container_name: wild-gablota-music-server_db_1
   app:
-    image: maksimab/music-server:latest
+    image: maksimab/music-server:1.2.1
     restart: on-failure
     stop_grace_period: 1m
     init: true
