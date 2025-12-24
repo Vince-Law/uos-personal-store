@@ -3,7 +3,7 @@ id: wild-gablota-music-server
 category: media
 name: Music Stream
 icon: https://iili.io/fEa1mue.png
-version: "1.3.9"
+version: "1.3.10"
 
 tagline: Self-hosted music library streaming server
 description: >-
