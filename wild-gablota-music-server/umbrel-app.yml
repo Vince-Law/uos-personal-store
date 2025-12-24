@@ -3,7 +3,7 @@ id: wild-gablota-music-server
 category: media
 name: Music Stream
 icon: https://iili.io/fEa1mue.png
-version: "1.3.7"
+version: "1.3.8"
 tagline: Self-hosted music library streaming server
 description: >-
   Music Stream is a self-hosted music library streaming server that allows you to
@@ -39,7 +39,14 @@ path: ""
 defaultUsername: admin
 defaultPassword: admin123
 releaseNotes: >-
-  Version 1.3.7 - Fixed Logs Controller
+  Version 1.3.8 - Reliable Admin Logs
+
+    - Fixed Express route bindings so admin logs load reliably
+    - Hardened console log fallback to prevent undefined errors
+    - Published refreshed Docker image maksimab/music-server:1.3.8
+
+  Previous features:
+    Version 1.3.7 - Fixed Logs Controller
 
     - Fixed static method access error in logs controller
     - Improved console log capture and buffering
@@ -47,7 +54,7 @@ releaseNotes: >-
     - Stabilized log endpoint functionality
     - Added better error handling for log sources
 
-  Previous features:
+  Earlier updates:
     Version 1.3.6 - Server Logs with Auto-Refresh
 
     - Added dedicated admin logs page with real-time monitoring
@@ -58,7 +65,7 @@ releaseNotes: >-
     - PM2 and application log file support
     - Log statistics and source information
 
-  Earlier features:
+  Historical features:
     Version 1.3.0 - High Quality Audio Support
 
     - Added HQ indicator for high-fidelity songs in playback screen
@@ -68,7 +75,6 @@ releaseNotes: >-
     - Visual feedback for lossless and high-bitrate audio formats
     - Orange "HQ" badge for premium quality songs
 
-  Historical features:
     - Full music library streaming capabilities
     - PostgreSQL database integration
     - Automatic metadata extraction
