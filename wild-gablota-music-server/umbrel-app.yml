@@ -3,7 +3,7 @@ id: wild-gablota-music-server
 category: media
 name: Music Stream
 icon: https://iili.io/fEa1mue.png
-version: "1.3.10"
+version: "1.3.11"
 
 tagline: Self-hosted music library streaming server
 description: >-
@@ -40,13 +40,28 @@ path: ""
 defaultUsername: admin
 defaultPassword: admin123
 releaseNotes: >-
+  Version 1.3.11 - Enhanced Cleanup Functionality
+
+    - Added intelligent cleanup that removes songs with missing files from disk
+    - Enhanced cleanup flow: missing songs → empty artists → empty albums  
+    - Improved file existence checking with detailed logging
+    - Updated API documentation for enhanced cleanup endpoint
+    - Published refreshed Docker image maksimab/music-server:1.3.11
+
+  Version 1.3.10 - Admin Issues & Logs Refresh
+
+    - Restores artist metadata so the issues dashboard loads correctly
+    - Cleans up noisy fallback log messages and trims blank lines
+    - Adds dedicated logs page with compact formatting and search
+    - Published refreshed Docker image maksimab/music-server:1.3.10
+
   Version 1.3.9 - Smarter Audio Quality Labels
 
     - Adds fast HQ/LQ detection with lossless badges
     - Persists quality metadata for admin UI display
     - Published refreshed Docker image maksimab/music-server:1.3.9
 
-  Previous features:
+  Earlier updates:
     Version 1.3.8 - Reliable Admin Logs
 
     - Fixed Express route bindings so admin logs load reliably
@@ -61,8 +76,7 @@ releaseNotes: >-
     - Stabilized log endpoint functionality
     - Added better error handling for log sources
 
-  Earlier updates:
-    Version 1.3.6 - Server Logs with Auto-Refresh
+  Version 1.3.6 - Server Logs with Auto-Refresh
 
     - Added dedicated admin logs page with real-time monitoring
     - Auto-refresh functionality for live log viewing
