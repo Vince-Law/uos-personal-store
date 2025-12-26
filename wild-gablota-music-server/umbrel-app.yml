@@ -3,7 +3,7 @@ id: wild-gablota-music-server
 category: media
 name: Music Stream
 icon: https://iili.io/fEa1mue.png
-version: "1.3.12"
+version: "1.3.13"
 
 tagline: Self-hosted music library streaming server
 description: >-
@@ -40,6 +40,15 @@ path: ""
 defaultUsername: admin
 defaultPassword: admin123
 releaseNotes: >-
+  Version 1.3.13 - Database Backup Fix
+
+    - Fixed PostgreSQL backup functionality - resolved "pg_dump: not found" error
+    - Added postgresql-client to Docker image for proper database operations
+    - Database backups now create complete PostgreSQL dumps via pg_dump
+    - Database restores now properly execute via psql
+    - Ensures all database data is backed up (songs, albums, artists, stats, settings)
+    - Published Docker image maksimab/music-server:1.3.13
+
   Version 1.3.12 - Most Listened Songs Feature
 
     - New "Most Listened Songs" tile in Library with top 10 tracks by minutes listened
