@@ -1,0 +1,68 @@
+manifestVersion: 1
+id: wild-gablota-recipe-notebook
+category: productivity
+name: Recipe Notebook
+icon: https://raw.githubusercontent.com/Vince-Law/recipe_notebook/refs/heads/main/logo.png?token=GHSAT0AAAAAADREY3DYTVR3M4WVZZ3UBL462KREJSQ
+version: "1.0.0"
+
+tagline: AI-powered recipe manager with smart shopping lists
+description: >-
+  Recipe Notebook is an intelligent recipe management system that helps you organize,
+  parse, and plan your meals. With AI-powered parsing, it can extract recipes from URLs
+  or text, convert them to vegan versions, and aggregate ingredients into smart shopping lists.
+
+
+  Features:
+
+    - 🍳 Parse recipes from URLs or paste text directly
+    - 🤖 AI-powered ingredient extraction and normalization using Google Gemini
+    - 🌱 Automatic vegan recipe conversion with ingredient substitutions
+    - 🛒 Smart shopping list with intelligent ingredient aggregation
+    - ✅ Checkbox tracking for purchased ingredients
+    - 🔧 Filter recipes by required cooking tools (oven, pan, mixer, etc.)
+    - 🍽️ Filter by meal type (vegetarian, italian, dessert, etc.)
+    - 📊 Nutritional information per portion (calories, protein, carbs, fat)
+    - 🖼️ Recipe image support with automatic download from URLs
+    - 🍴 Portion adjustment and automatic ingredient scaling
+    - 📱 Clean, responsive interface optimized for mobile and desktop
+    - 🔒 Secure single-user authentication with JWT
+
+
+  Perfect for meal planning, grocery shopping, and building your personal recipe collection!
+  Simply paste a recipe URL or text, and the AI will automatically extract ingredients,
+  steps, cooking time, and nutritional information.
+
+developer: VinceLaw
+website: https://github.com/Vince-Law/recipe_notebook
+dependencies: []
+repo: https://github.com/Vince-Law/recipe_notebook
+support: https://github.com/Vince-Law/recipe_notebook
+port: 1209
+gallery: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+releaseNotes: >-
+  Version 1.0.0 - Initial Release
+
+
+    - AI-powered recipe parsing with Google Gemini integration
+    - Smart ingredient aggregation for shopping lists
+    - Vegan recipe conversion with automatic substitutions
+    - Cooking tools detection and filtering (10 common tools)
+    - Meal type filtering with clickable buttons (17 types)
+    - Shopping list with checkboxes for purchased items
+    - Nutritional facts tracking (USDA-based calculations)
+    - Recipe image support with automatic download
+    - Multi-portion scaling with real-time ingredient adjustment
+    - Ingredient grouping (for sauce, topping, garnish, etc.)
+    - PostgreSQL database with Prisma ORM
+    - JWT-based authentication
+    - Responsive React + TypeScript frontend
+    - Node.js + Fastify backend
+    - Docker containerization ready for Umbrel
+
+
+  Initial features complete and production-ready!
+
+torOnly: false
