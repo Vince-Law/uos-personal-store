@@ -3,7 +3,7 @@ id: wild-gablota-recipe-notebook
 category: productivity
 name: Recipe Notebook
 icon: https://iili.io/fVs6W2p.md.png
-version: "1.1.9"
+version: "1.2.1"
 
 tagline: AI-powered recipe manager with smart shopping lists
 description: >-
@@ -47,14 +47,21 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  Version 1.1.7 - Multi-Architecture Support & Configuration Improvements
+  Version 1.2.1 - Fixed ARM64 Support & Security Improvements
 
 
-    - Built multi-architecture Docker image supporting AMD64 and ARM64
+    - FIXED: bcrypt native module now properly compiled for ARM64 architecture
+    - FIXED: Prevented local node_modules from overwriting Docker-built binaries
+    - SECURITY: Added .dockerignore to prevent accidental inclusion of sensitive files
+    - Multi-architecture Docker image supporting AMD64 and ARM64
+    - User-configurable Gemini API Key input via Umbrel UI
+
+
+  Version 1.1.7 - Initial Umbrel Release
+
+
     - Fixed Docker service naming for Umbrel compatibility
-    - Added user-configurable Gemini API Key input via Umbrel UI
-    - Resolved bcrypt native module architecture issues
-    - Improved container startup and health check reliability
+    - Added health checks and proper container dependencies
 
 
   Version 1.0.0 - Initial Release
