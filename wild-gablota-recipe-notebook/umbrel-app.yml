@@ -3,7 +3,7 @@ id: wild-gablota-recipe-notebook
 category: productivity
 name: Recipe Notebook
 icon: https://iili.io/fVs6W2p.md.png
-version: "1.1.7"
+version: "1.1.8"
 
 tagline: AI-powered recipe manager with smart shopping lists
 description: >-
@@ -31,6 +31,10 @@ description: >-
   Perfect for meal planning, grocery shopping, and building your personal recipe collection!
   Simply paste a recipe URL or text, and the AI will automatically extract ingredients,
   steps, cooking time, and nutritional information.
+
+
+  IMPORTANT: This app requires a Google Gemini API key to function. Get your free API key
+  at https://aistudio.google.com/app/apikey - You will be prompted to enter it during installation.
 
 developer: VinceLaw
 website: https://github.com/Vince-Law/recipe_notebook
