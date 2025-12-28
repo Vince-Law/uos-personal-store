@@ -3,7 +3,7 @@ id: wild-gablota-recipe-notebook
 category: productivity
 name: Recipe Notebook
 icon: https://iili.io/fVs6W2p.md.png
-version: "1.1.6"
+version: "1.1.7"
 
 tagline: AI-powered recipe manager with smart shopping lists
 description: >-
@@ -43,6 +43,16 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
+  Version 1.1.7 - Multi-Architecture Support & Configuration Improvements
+
+
+    - Built multi-architecture Docker image supporting AMD64 and ARM64
+    - Fixed Docker service naming for Umbrel compatibility
+    - Added user-configurable Gemini API Key input via Umbrel UI
+    - Resolved bcrypt native module architecture issues
+    - Improved container startup and health check reliability
+
+
   Version 1.0.0 - Initial Release
 
 
@@ -60,9 +70,10 @@ releaseNotes: >-
     - JWT-based authentication
     - Responsive React + TypeScript frontend
     - Node.js + Fastify backend
-    - Docker containerization ready for Umbrel
-
-
-  Initial features complete and production-ready!
 
 torOnly: false
+submitters:
+  - id: gemini-api-key
+    name: Gemini API Key
+    description: Enter your Google Gemini API key for AI-powered recipe parsing. Get one at https://aistudio.google.com/app/apikey
+    required: true

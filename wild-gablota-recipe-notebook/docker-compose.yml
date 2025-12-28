@@ -35,7 +35,7 @@ services:
     container_name: wild-gablota-recipe-notebook_postgres_1
 
   app:
-    image: maksimab/recipe_notebook:1.1.5
+    image: maksimab/recipe_notebook:1.1.7
     restart: on-failure
     stop_grace_period: 1m
     init: true
@@ -45,7 +45,7 @@ services:
       DATABASE_URL: >-
         postgresql://recipe_user:${APP_SEED}@wild-gablota-recipe-notebook_postgres_1:5432/recipe_notebook
       JWT_SECRET: ${APP_SEED}
-      GEMINI_API_KEY: ${GEMINI_API_KEY}
+      GEMINI_API_KEY: ${APP_GEMINI_API_KEY}
     dns:
       - 1.1.1.1
       - 8.8.8.8
