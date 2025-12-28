@@ -3,7 +3,7 @@ id: wild-gablota-recipe-notebook
 category: productivity
 name: Recipe Notebook
 icon: https://raw.githubusercontent.com/Vince-Law/recipe_notebook/refs/heads/main/logo.png?token=GHSAT0AAAAAADREY3DYTVR3M4WVZZ3UBL462KREJSQ
-version: "1.0.2"
+version: "1.0.3"
 
 tagline: AI-powered recipe manager with smart shopping lists
 description: >-
