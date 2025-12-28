@@ -3,7 +3,7 @@ id: wild-gablota-recipe-notebook
 category: productivity
 name: Recipe Notebook
 icon: https://iili.io/fVs6W2p.md.png
-version: "1.2.6"
+version: "1.2.7"
 
 tagline: AI-powered recipe manager with smart shopping lists
 description: >-
@@ -47,6 +47,15 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
+  Version 1.2.7 - Upload Permissions Fix (Critical)
+
+
+    - FIXED: Upload folder permissions issue with chmod 777 fallback
+    - FIXED: Health check now reports degraded status instead of failing
+    - IMPROVED: Better entrypoint logging for debugging permission issues
+    - IMPROVED: More resilient filesystem access handling
+
+
   Version 1.2.6 - Mobile UI Improvements & Upload Permissions Fix
 
 
