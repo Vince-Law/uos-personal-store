@@ -3,7 +3,7 @@ id: wild-gablota-recipe-notebook
 category: productivity
 name: Recipe Notebook
 icon: https://iili.io/fVs6W2p.md.png
-version: "1.2.5"
+version: "1.2.6"
 
 tagline: AI-powered recipe manager with smart shopping lists
 description: >-
@@ -47,6 +47,19 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
+  Version 1.2.6 - Mobile UI Improvements & Upload Permissions Fix
+
+
+    - FIXED: Upload folder permissions issue (EACCES error)
+    - IMPROVED: Compact "Add Recipe" button on mobile (icon only)
+    - IMPROVED: Collapsible filters on mobile (hidden by default)
+    - IMPROVED: Compact portion controls with better alignment
+    - IMPROVED: More compact basket page UI (smaller checkboxes, better layout)
+    - FIXED: Settings dropdown now stays open when clicking
+    - IMPROVED: Settings page fully translated to Russian
+    - Better mobile-responsive design across all pages
+
+
   Version 1.2.5 - Migration Fix & UI-Based API Key Configuration
 
 
