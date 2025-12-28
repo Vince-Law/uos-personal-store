@@ -3,7 +3,7 @@ id: wild-gablota-recipe-notebook
 category: productivity
 name: Recipe Notebook
 icon: https://iili.io/fVs6W2p.md.png
-version: "1.2.4"
+version: "1.2.5"
 
 tagline: AI-powered recipe manager with smart shopping lists
 description: >-
@@ -47,9 +47,10 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  Version 1.2.4 - UI-Based API Key Configuration
+  Version 1.2.5 - Migration Fix & UI-Based API Key Configuration
 
 
+    - FIXED: Database migration baseline issue for existing installations
     - NEW: Configure Gemini API key directly in the Settings page (no more docker-compose edits!)
     - NEW: API key now persists in database across updates
     - NEW: Test API key functionality before saving
