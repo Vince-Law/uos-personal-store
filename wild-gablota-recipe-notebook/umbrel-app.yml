@@ -3,7 +3,7 @@ id: wild-gablota-recipe-notebook
 category: productivity
 name: Recipe Notebook
 icon: https://iili.io/fVs6W2p.md.png
-version: "1.3.0"
+version: "1.3.2"
 
 tagline: AI-powered recipe manager with smart shopping lists
 description: >-
@@ -47,6 +47,24 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
+  Version 1.3.2 - Recipe Type Detection Fix
+
+
+    - FIXED: LLM now only uses predefined recipe types from the filter list
+    - FIXED: No more invalid tags like "быстро, просто, вкусно"
+    - IMPROVED: Stricter enforcement of recipe type validation
+    - Recipe types are now limited to: cuisine, meal type, and dietary restrictions
+
+
+  Version 1.3.1 - Basket Page Mobile Optimization
+
+
+    - IMPROVED: Basket page buttons now show only icons on mobile (cleaner UI)
+    - IMPROVED: Removed ingredient count text from recipe cards in basket
+    - IMPROVED: Smaller page header without emoji icon
+    - All buttons (clear, copy, print, remove) are more compact on mobile devices
+
+
   Version 1.3.0 - UI Improvements & Hide Tools Feature
 
 
