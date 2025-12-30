@@ -3,7 +3,7 @@ id: wild-gablota-recipe-notebook
 category: productivity
 name: Recipe Notebook
 icon: https://iili.io/fVs6W2p.md.png
-version: "1.3.4"
+version: "1.3.6"
 
 tagline: AI-powered recipe manager with smart shopping lists
 description: >-
@@ -47,6 +47,17 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
+  Version 1.3.6 - Max Tokens Configuration & Enhanced Logging
+
+
+    - NEW: Configurable max tokens setting in UI (Settings → AI Settings)
+    - NEW: Users can now adjust LLM response length (1024-100000 tokens)
+    - IMPROVED: Better error logging for LLM parsing failures
+    - IMPROVED: More detailed response statistics in logs
+    - FIXED: Default max tokens increased to 65536 for complex recipes
+    - Database migration adds maxTokens field to Settings table
+
+
   Version 1.3.4 - UI Polish & Bug Fixes
 
 
