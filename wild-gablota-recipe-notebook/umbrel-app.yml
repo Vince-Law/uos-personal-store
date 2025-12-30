@@ -3,7 +3,7 @@ id: wild-gablota-recipe-notebook
 category: productivity
 name: Recipe Notebook
 icon: https://iili.io/fVs6W2p.md.png
-version: "1.3.2"
+version: "1.3.4"
 
 tagline: AI-powered recipe manager with smart shopping lists
 description: >-
@@ -47,6 +47,17 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
+  Version 1.3.4 - UI Polish & Bug Fixes
+
+
+    - FIXED: Recipe cards no longer show warnings (warnings only on detail page)
+    - FIXED: Basket button always visible on recipe cards
+    - FIXED: Vertical alignment of "Выбранные рецепты" header with clear button
+    - IMPROVED: Recipe names in basket now wrap instead of being truncated with "..."
+    - IMPROVED: Removed white background from portion control buttons for cleaner look
+    - Better flexbox layout for recipe cards ensures consistent display
+
+
   Version 1.3.2 - Recipe Type Detection Fix
 
 
