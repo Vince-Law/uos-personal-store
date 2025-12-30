@@ -3,7 +3,7 @@ id: wild-gablota-recipe-notebook
 category: productivity
 name: Recipe Notebook
 icon: https://iili.io/fVs6W2p.md.png
-version: "1.2.9"
+version: "1.3.0"
 
 tagline: AI-powered recipe manager with smart shopping lists
 description: >-
@@ -47,6 +47,17 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
+  Version 1.3.0 - UI Improvements & Hide Tools Feature
+
+
+    - NEW: User setting to hide tools section (filter and recipe panel)
+    - IMPROVED: Removed redundant "Мои рецепты" header and "+ Добавить" button from home page
+    - IMPROVED: More compact action buttons on mobile (icons instead of full text)
+    - IMPROVED: Compact portion controls that take less space on mobile
+    - IMPROVED: Warnings section moved below recipe steps for better flow
+    - Database migration adds hideTools setting to Settings table
+
+
   Version 1.2.8 - Image URL Fix (Critical)
 
 
