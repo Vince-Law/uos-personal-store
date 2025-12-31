@@ -3,7 +3,7 @@ id: wild-gablota-recipe-notebook
 category: productivity
 name: Recipe Notebook
 icon: https://iili.io/fVs6W2p.md.png
-version: "1.6.1"
+version: "1.6.2"
 
 tagline: AI-powered recipe manager with smart shopping lists
 description: >-
@@ -47,6 +47,18 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
+  Version 1.6.2 - Recipe Detail Page Redesign
+
+
+    - NEW: Dropdown actions menu (⋮) for recipe operations (add to basket, delete)
+    - IMPROVED: Reorganized header layout - title, meta info, then tags
+    - IMPROVED: Actions button positioned on the right side of recipe title
+    - REMOVED: Cooking mode (will be reimplemented differently later)
+    - REMOVED: Tools section from recipe detail page
+    - IMPROVED: Cleaner, more streamlined recipe viewing experience
+    - Better visual hierarchy and information organization
+
+
   Version 1.6.1 - UI Improvements & Rate Limit Fix
 
 
