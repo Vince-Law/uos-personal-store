@@ -3,7 +3,7 @@ id: wild-gablota-recipe-notebook
 category: productivity
 name: Recipe Notebook
 icon: https://iili.io/fVs6W2p.md.png
-version: "1.6.0"
+version: "1.6.1"
 
 tagline: AI-powered recipe manager with smart shopping lists
 description: >-
@@ -47,6 +47,18 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
+  Version 1.6.1 - UI Improvements & Rate Limit Fix
+
+
+    - FIXED: Rate limiting increased from 100 to 1000 requests per 15 minutes per IP
+    - FIXED: Health checks excluded from rate limiting
+    - IMPROVED: Cleaner recipe detail page layout
+    - IMPROVED: Portion controls moved to ingredients header row
+    - IMPROVED: Removed emoji from ingredients header
+    - IMPROVED: Tighter spacing between recipe info and action buttons
+    - No more "Rate limit exceeded" errors during normal usage
+
+
   Version 1.6.0 - Progressive Web App (PWA) Support
 
 
