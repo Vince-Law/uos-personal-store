@@ -3,7 +3,7 @@ id: wild-gablota-recipe-notebook
 category: productivity
 name: Recipe Notebook
 icon: https://iili.io/fVs6W2p.md.png
-version: "1.3.6"
+version: "1.4.0"
 
 tagline: AI-powered recipe manager with smart shopping lists
 description: >-
@@ -47,6 +47,21 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
+  Version 1.4.0 - Recipe Job Tracking & Progress Monitoring
+
+
+    - NEW: Real-time recipe processing progress tracking page
+    - NEW: View detailed logs for each recipe being processed
+    - NEW: See exact LLM prompts and responses in debug panel
+    - NEW: Job status monitoring (pending → scraping → parsing → saving → completed)
+    - NEW: Fallback portions input field on Add Recipe page
+    - NEW: Token usage statistics and performance metrics
+    - IMPROVED: Async recipe processing (non-blocking UI)
+    - IMPROVED: Auto-cleanup of old processing jobs (7+ days)
+    - Access progress page from user menu → "📊 Обработка рецептов"
+    - Database migration adds RecipeJob table for tracking
+
+
   Version 1.3.6 - Max Tokens Configuration & Enhanced Logging
 
 
