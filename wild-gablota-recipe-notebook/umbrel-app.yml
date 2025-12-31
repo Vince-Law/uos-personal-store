@@ -3,7 +3,7 @@ id: wild-gablota-recipe-notebook
 category: productivity
 name: Recipe Notebook
 icon: https://iili.io/fVs6W2p.md.png
-version: "1.5.0"
+version: "1.5.1"
 
 tagline: AI-powered recipe manager with smart shopping lists
 description: >-
@@ -47,6 +47,16 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
+  Version 1.5.1 - Manual Image URL & UI Improvements
+
+
+    - NEW: Manual image URL input field on recipe creation form
+    - NEW: Fallback image URL when LLM/scraper fails to extract image
+    - IMPROVED: AI Insights section now matches warning section styling
+    - IMPROVED: More consistent UI across recipe detail page
+    - Priority order: LLM extracted > Scraped > Manual image URL
+
+
   Version 1.5.0 - Cooking Mode Feature
 
 
