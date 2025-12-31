@@ -3,7 +3,7 @@ id: wild-gablota-recipe-notebook
 category: productivity
 name: Recipe Notebook
 icon: https://iili.io/fVs6W2p.md.png
-version: "1.6.4"
+version: "1.6.5"
 
 tagline: AI-powered recipe manager with smart shopping lists
 description: >-
@@ -47,6 +47,19 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
+  Version 1.6.5 - Cooking Mode & Smart Timers
+
+
+    - NEW: Cooking mode for basket page with step-by-step progress tracking
+    - NEW: Automatic timer detection in recipe steps (e.g., "bake for 30 minutes")
+    - NEW: Interactive timers with browser notifications and sound alerts
+    - NEW: Recipe switcher in cooking mode to track multiple recipes
+    - NEW: Step completion persistence - progress saved across page refreshes
+    - IMPROVED: Nutritional facts now displayed in clean table layout
+    - IMPROVED: Recipe card spacing fixed (proper gaps between cards)
+    - Clear button now also resets cooking mode progress
+
+
   Version 1.6.4 - Maintenance Release
 
 
