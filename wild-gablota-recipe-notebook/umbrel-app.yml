@@ -3,7 +3,7 @@ id: wild-gablota-recipe-notebook
 category: productivity
 name: Recipe Notebook
 icon: https://iili.io/fVs6W2p.md.png
-version: "1.6.5"
+version: "1.6.6"
 
 tagline: AI-powered recipe manager with smart shopping lists
 description: >-
@@ -47,6 +47,15 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
+  Version 1.6.6 - Improved Timer Detection
+
+
+    - IMPROVED: Enhanced LLM prompt for better timer detection in recipe steps
+    - IMPROVED: Added more examples for timer recognition (e.g., "оставьте на 30 минут")
+    - FIXED: Removed unused tools detection from recipe parsing
+    - Timer now correctly detects phrases like "оставить на X минут", "в течение X минут"
+
+
   Version 1.6.5 - Cooking Mode & Smart Timers
 
 
