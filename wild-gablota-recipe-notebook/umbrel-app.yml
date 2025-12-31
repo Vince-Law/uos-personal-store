@@ -3,7 +3,7 @@ id: wild-gablota-recipe-notebook
 category: productivity
 name: Recipe Notebook
 icon: https://iili.io/fVs6W2p.md.png
-version: "1.5.1"
+version: "1.6.0"
 
 tagline: AI-powered recipe manager with smart shopping lists
 description: >-
@@ -47,6 +47,20 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
+  Version 1.6.0 - Progressive Web App (PWA) Support
+
+
+    - NEW: Full Progressive Web App (PWA) functionality
+    - NEW: Install as native app on mobile and desktop devices
+    - NEW: Offline support with intelligent caching strategy
+    - NEW: Automatic service worker updates
+    - NEW: Network-first caching for recipes API (5 min cache)
+    - NEW: Cache-first strategy for images (30 days) and fonts (1 year)
+    - IMPROVED: Better mobile experience with app-like interface
+    - IMPROVED: Faster load times with asset precaching
+    - Installable from browser menu or "Add to Home Screen"
+
+
   Version 1.5.1 - Manual Image URL & UI Improvements
 
 
