@@ -3,7 +3,7 @@ id: wild-gablota-recipe-notebook
 category: productivity
 name: Recipe Notebook
 icon: https://iili.io/fVs6W2p.md.png
-version: "1.4.0"
+version: "1.4.1"
 
 tagline: AI-powered recipe manager with smart shopping lists
 description: >-
@@ -47,6 +47,17 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
+  Version 1.4.1 - UI Improvements for Progress Tracking
+
+
+    - NEW: Prominent progress button (📋) in header for easy access
+    - NEW: Automatic redirect to progress page after adding recipe
+    - NEW: Progress link on empty homepage with helpful tips
+    - IMPROVED: Better visual indicators for accessing job tracking
+    - IMPROVED: User flow guidance with informative messages
+    - Now 4 different ways to access the progress tracking page!
+
+
   Version 1.4.0 - Recipe Job Tracking & Progress Monitoring
 
 
