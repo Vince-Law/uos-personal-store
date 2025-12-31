@@ -3,7 +3,7 @@ id: wild-gablota-recipe-notebook
 category: productivity
 name: Recipe Notebook
 icon: https://iili.io/fVs6W2p.md.png
-version: "1.4.1"
+version: "1.5.0"
 
 tagline: AI-powered recipe manager with smart shopping lists
 description: >-
@@ -47,6 +47,18 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
+  Version 1.5.0 - Cooking Mode Feature
+
+
+    - NEW: Cooking mode toggle button (👨‍🍳 chef icon) on recipe detail page
+    - NEW: Transform step numbers into interactive checkboxes in cooking mode
+    - NEW: Completed steps are crossed out and moved to bottom of list
+    - NEW: Hide AI warnings and insights in cooking mode for cleaner view
+    - IMPROVED: Better focus on current cooking step
+    - IMPROVED: Easy tracking of recipe progress while cooking
+    - Steps automatically reordered as you complete them (active steps always on top)
+
+
   Version 1.4.1 - UI Improvements for Progress Tracking
 
 
