@@ -3,7 +3,7 @@ id: wild-gablota-recipe-notebook
 category: productivity
 name: Recipe Notebook
 icon: https://iili.io/fVs6W2p.md.png
-version: "1.6.2"
+version: "1.6.4"
 
 tagline: AI-powered recipe manager with smart shopping lists
 description: >-
@@ -47,6 +47,24 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
+  Version 1.6.4 - Maintenance Release
+
+
+    - Updated to latest version
+    - Multi-architecture support (AMD64 and ARM64)
+    - Stability improvements
+
+
+  Version 1.6.3 - Floating Basket Button on Recipe Cards
+
+
+    - NEW: Floating round basket button at top-right corner of recipe images
+    - IMPROVED: More compact recipe card design (removed bottom action button)
+    - IMPROVED: Visual feedback with green color when recipe is in basket
+    - IMPROVED: Checkmark indicator on basket button when item is added
+    - Cleaner, more modern recipe card layout with better use of space
+
+
   Version 1.6.2 - Recipe Detail Page Redesign
 
 
