@@ -3,7 +3,7 @@ id: wild-gablota-recipe-notebook
 category: productivity
 name: Recipe Notebook
 icon: https://iili.io/fVs6W2p.md.png
-version: "1.6.6"
+version: "1.6.7"
 
 tagline: AI-powered recipe manager with smart shopping lists
 description: >-
@@ -47,6 +47,14 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
+  Version 1.6.7 - Migration Fix
+
+
+    - FIXED: Database migration error on startup
+    - Cleaned up duplicate migration directories
+    - App now starts correctly with timer feature
+
+
   Version 1.6.6 - Improved Timer Detection
 
 
