@@ -3,7 +3,7 @@ id: wild-gablota-recipe-notebook
 category: productivity
 name: Recipe Notebook
 icon: https://iili.io/fVs6W2p.md.png
-version: "1.6.8"
+version: "1.6.9"
 
 tagline: AI-powered recipe manager with smart shopping lists
 description: >-
@@ -47,6 +47,15 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
+  Version 1.6.9 - Timer Persistence Across Pages
+
+
+    - FIXED: Timers now continue running when navigating to other pages
+    - Timer state persisted in localStorage with accurate time tracking
+    - Timers automatically resume when returning to cooking mode
+    - Better background timer support for uninterrupted cooking
+
+
   Version 1.6.8 - Timer Data Persistence Fix
 
 
