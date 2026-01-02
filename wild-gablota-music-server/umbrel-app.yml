@@ -3,7 +3,7 @@ id: wild-gablota-music-server
 category: media
 name: Music Stream
 icon: https://iili.io/fEa1mue.png
-version: "1.3.14"
+version: "1.3.15"
 
 tagline: Self-hosted music library streaming server
 description: >-
@@ -40,6 +40,17 @@ path: ""
 defaultUsername: admin
 defaultPassword: admin123
 releaseNotes: >-
+  Version 1.3.15 - Web Player Fixes & Library View
+
+    - FIXED: Liked songs loading error due to undefined properties
+    - FIXED: Now playing bar positioning to stick to bottom
+    - FIXED: Flexbox layout issues in player interface
+    - NEW: Library view with statistics tiles (Liked Songs, Most Listened, Stats)
+    - NEW: Most Listened Songs view showing top tracks by minutes
+    - IMPROVED: Unified dark theme across all pages (Player, Admin, Library)
+    - IMPROVED: Consistent color scheme with CSS variables
+    - Published Docker image maksimab/music-server:1.3.15
+
   Version 1.3.14 - Web Player UI
 
     - NEW: Full-featured web music player interface (player.html)
