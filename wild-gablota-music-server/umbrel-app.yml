@@ -45,10 +45,15 @@ releaseNotes: >-
     - FIXED: Liked songs loading error due to undefined properties
     - FIXED: Now playing bar positioning to stick to bottom
     - FIXED: Flexbox layout issues in player interface
+    - FIXED: Library stats loading errors with proper null checks
+    - FIXED: Most Listened songs view error handling
+    - FIXED: Queue display errors for songs without album data
+    - FIXED: Playback errors for incomplete song metadata
     - NEW: Library view with statistics tiles (Liked Songs, Most Listened, Stats)
     - NEW: Most Listened Songs view showing top tracks by minutes
     - IMPROVED: Unified dark theme across all pages (Player, Admin, Library)
     - IMPROVED: Consistent color scheme with CSS variables
+    - IMPROVED: Robust error handling for API responses
     - Published Docker image maksimab/music-server:1.3.15
 
   Version 1.3.14 - Web Player UI
