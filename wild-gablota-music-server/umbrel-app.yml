@@ -3,7 +3,7 @@ id: wild-gablota-music-server
 category: media
 name: Music Stream
 icon: https://iili.io/fEa1mue.png
-version: "1.4.1"
+version: "1.4.2"
 
 tagline: Self-hosted music library streaming server
 description: >-
@@ -40,6 +40,14 @@ path: ""
 defaultUsername: admin
 defaultPassword: admin123
 releaseNotes: >-
+  Version 1.4.2 - Web Player Bug Fixes
+
+    Bug Fixes:
+    - Fixed music streaming 404 error - added /api/music/stream endpoint
+    - Fixed liked songs not displaying - corrected API response format
+    - Web player now fully functional with music playback and liked songs
+    - Updated Docker image maksimab/music-server:1.4.2
+
   Version 1.4.1 - Maintenance Release
 
     Updates:
