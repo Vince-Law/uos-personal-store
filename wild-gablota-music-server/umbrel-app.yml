@@ -3,7 +3,7 @@ id: wild-gablota-music-server
 category: media
 name: Music Stream
 icon: https://iili.io/fEa1mue.png
-version: "1.4.2"
+version: "1.4.3"
 
 tagline: Self-hosted music library streaming server
 description: >-
@@ -40,6 +40,20 @@ path: ""
 defaultUsername: admin
 defaultPassword: admin123
 releaseNotes: >-
+  Version 1.4.3 - Automatic Token Refresh
+
+    Major Features:
+    - Implemented automatic JWT token refresh to prevent session expiration
+    - Enhanced authentication flow with seamless token renewal
+    - Improved error handling with better token expiry detection
+
+    Improvements:
+    - Added /api/auth/refresh endpoint for token renewal
+    - Updated auth middleware to distinguish expired vs invalid tokens
+    - Enhanced client-side retry logic for failed requests
+    - Users no longer need to manually re-login when tokens expire
+    - Updated Docker image maksimab/music-server:1.4.3
+
   Version 1.4.2 - Web Player Bug Fixes
 
     Bug Fixes:
