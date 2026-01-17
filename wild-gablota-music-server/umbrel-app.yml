@@ -3,7 +3,7 @@ id: wild-gablota-music-server
 category: media
 name: Music Stream
 icon: https://iili.io/fEa1mue.png
-version: "1.3.13"
+version: "1.4.4"
 
 tagline: Self-hosted music library streaming server
 description: >-
@@ -40,6 +40,17 @@ path: ""
 defaultUsername: admin
 defaultPassword: admin123
 releaseNotes: >-
+  Version 1.4.4 - Web Player UI Improvements
+
+    - Replaced emoji icons with Material Icons throughout the web player UI
+    - Updated sidebar navigation icons (Artists, Library, Liked Songs, etc.)
+    - Improved playback control icons (play/pause, skip, repeat, volume, queue)
+    - Enhanced like button icons with proper filled/outline states
+    - Fixed cover art display in queue view with placeholder fallback
+    - Fixed cover art display in now playing widget with placeholder fallback
+    - Added gradient placeholder for missing album artwork
+    - Published Docker image maksimab/music-server:1.4.4
+
   Version 1.3.13 - Database Backup Fix
 
     - Fixed PostgreSQL backup functionality - resolved "pg_dump: not found" error
@@ -47,7 +58,6 @@ releaseNotes: >-
     - Database backups now create complete PostgreSQL dumps via pg_dump
     - Database restores now properly execute via psql
     - Ensures all database data is backed up (songs, albums, artists, stats, settings)
-    - Published Docker image maksimab/music-server:1.3.13
 
   Version 1.3.12 - Most Listened Songs Feature
 
