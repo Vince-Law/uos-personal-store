@@ -3,7 +3,7 @@ id: wild-gablota-music-server
 category: media
 name: Music Stream
 icon: https://iili.io/fEa1mue.png
-version: "1.4.5"
+version: "1.4.6"
 
 tagline: Self-hosted music library streaming server
 description: >-
@@ -40,6 +40,12 @@ path: ""
 defaultUsername: admin
 defaultPassword: admin123
 releaseNotes: >-
+  Version 1.4.6 - Repeat Button Cleanup
+
+    - Removed tooltip text from repeat button
+    - Simplified repeat button states (icons only)
+    - Published Docker image maksimab/music-server:1.4.6
+
   Version 1.4.5 - Web Player Bug Fixes
 
     - Fixed repeat button showing emoji instead of Material Icon after clicking
