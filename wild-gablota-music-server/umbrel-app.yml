@@ -3,7 +3,7 @@ id: wild-gablota-music-server
 category: media
 name: Music Stream
 icon: https://iili.io/fEa1mue.png
-version: "1.4.4"
+version: "1.4.5"
 
 tagline: Self-hosted music library streaming server
 description: >-
@@ -40,6 +40,16 @@ path: ""
 defaultUsername: admin
 defaultPassword: admin123
 releaseNotes: >-
+  Version 1.4.5 - Web Player Bug Fixes
+
+    - Fixed repeat button showing emoji instead of Material Icon after clicking
+    - Added clear visual states for repeat modes (off/all/one) with opacity changes
+    - Fixed 404 error on playback stats endpoint (corrected API URL)
+    - Fixed cover art placeholder not showing in queue view
+    - Improved empty cover art detection (handles empty strings)
+    - Added image error handler for now playing cover art
+    - Published Docker image maksimab/music-server:1.4.5
+
   Version 1.4.4 - Web Player UI Improvements
 
     - Replaced emoji icons with Material Icons throughout the web player UI
