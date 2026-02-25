@@ -15,6 +15,8 @@ services:
     restart: on-failure
     stop_grace_period: 1m
     init: true
+    environment:
+      PATH: /root/.nanobot/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
     dns:
       - 1.1.1.1
       - 8.8.8.8
@@ -26,8 +28,11 @@ services:
       - >-
         import json, os;
         d="/root/.nanobot"; c=f"{d}/config.json"; p=f"{d}/prompts.md"; m=f"{d}/mcp_servers.json";
+        b=f"{d}/bin"; curl_shim=f"{b}/curl";
         os.makedirs(d, exist_ok=True);
-        [open(pth,"w",encoding="utf-8").write("#!/usr/local/bin/python\nimport sys, urllib.request\nargs=sys.argv[1:]\nurl=next((a for a in args if a.startswith('http://') or a.startswith('https://')), None)\nif not url: sys.exit(2)\nsilent=('-s' in args) or ('--silent' in args)\ntry:\n r=urllib.request.urlopen(url, timeout=5)\n body=r.read()\n if not silent:\n  sys.stdout.buffer.write(body)\n sys.exit(0)\nexcept urllib.error.HTTPError as e:\n body=e.read() if hasattr(e,'read') else b''\n if not silent and body:\n  sys.stdout.buffer.write(body)\n sys.exit(0)\nexcept Exception:\n sys.exit(7)\n") or os.chmod(pth,0o755) for pth in ("/usr/local/bin/curl","/usr/bin/curl","/bin/curl") if os.access(os.path.dirname(pth), os.W_OK)];
+        os.makedirs(b, exist_ok=True);
+        open(curl_shim,"w",encoding="utf-8").write("#!/usr/local/bin/python\nimport sys, urllib.request\nargs=sys.argv[1:]\nurl=next((a for a in args if a.startswith('http://') or a.startswith('https://')), None)\nif not url: sys.exit(2)\nsilent=('-s' in args) or ('--silent' in args)\ntry:\n r=urllib.request.urlopen(url, timeout=5)\n body=r.read()\n if not silent:\n  sys.stdout.buffer.write(body)\n sys.exit(0)\nexcept urllib.error.HTTPError as e:\n body=e.read() if hasattr(e,'read') else b''\n if not silent and body:\n  sys.stdout.buffer.write(body)\n sys.exit(0)\nexcept Exception:\n sys.exit(7)\n");
+        os.chmod(curl_shim,0o755);
         tmpl={"providers":{"openai":{"apiKey":"CHANGE_ME_OPENAI_API_KEY"}},"agents":{"defaults":{"model":"openai/gpt-4o-mini","workspace":"~/.nanobot/workspace"}},"gateway":{"host":"0.0.0.0","port":18790},"channels":{"telegram":{"enabled":False,"token":"CHANGE_ME_TELEGRAM_BOT_TOKEN","allowFrom":["123456789"]}}};
         (not os.path.exists(c)) and open(c,"w",encoding="utf-8").write(json.dumps(tmpl,indent=2));
         os.path.exists(c) and (lambda t:(("\"providers\"" not in t) and (("\"llm_services\"" in t) or ("\"gateway_api_keys\"" in t))) and open(c,"w",encoding="utf-8").write(json.dumps(tmpl,indent=2)))(open(c,"r",encoding="utf-8").read());
