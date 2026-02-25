@@ -20,11 +20,18 @@ services:
       - 8.8.8.8
     volumes:
       - ${APP_DATA_DIR}/data/nanobot:/root/.nanobot
-      - ./config.template.json:/opt/nanobot-umbrel/config.template.json:ro
-      - ./start-nanobot.py:/usr/local/bin/start-nanobot.py:ro
     entrypoint:
       - python
-      - /usr/local/bin/start-nanobot.py
+      - -c
+      - >-
+        import json, os;
+        d="/root/.nanobot"; c=f"{d}/config.json"; p=f"{d}/prompts.md"; m=f"{d}/mcp_servers.json";
+        os.makedirs(d, exist_ok=True);
+        tmpl={"system_settings":{"language":"en-US","safe_mode":True,"web_search_enabled":False,"clear_history_on_restart":False,"enable_history":True,"timezone":"UTC"},"llm_services":[{"service_id":"openai","provider":"openai","api_key":"CHANGE_ME_OPENAI_API_KEY","models":[{"model_id":"gpt-4.1-mini","name":"gpt-4.1-mini"}],"tools":{"web_search":{"type":"disabled","params":{}}}}],"agents":{"assistant":{"description":"Default assistant agent","instruction":"You are a helpful assistant.","llm_service_id":"openai","llm_model_id":"gpt-4.1-mini","mcp_servers":[],"enable_history":True}},"system_prompt":"You are a helpful assistant.","gateway_api_keys":["CHANGE_ME_STRONG_GATEWAY_API_KEY"],"prompts_md_path":"/root/.nanobot/prompts.md","mcp_servers_json_path":"/root/.nanobot/mcp_servers.json","channels":{"telegram":{"enabled":False,"bot_token":"CHANGE_ME_TELEGRAM_BOT_TOKEN","bot_username":"","allow_list":["123456789"],"enable_messages":True,"enable_voice_transcription":False,"enable_sending_voice":False,"voice_model":"gpt-4o-mini-transcribe"}}};
+        (not os.path.exists(c)) and open(c,"w",encoding="utf-8").write(json.dumps(tmpl,indent=2));
+        (not os.path.exists(p)) and open(p,"w",encoding="utf-8").write("# NanoBot prompts\n");
+        (not os.path.exists(m)) and open(m,"w",encoding="utf-8").write("{}\n");
+        os.execvp("nanobot",["nanobot","gateway"])
     healthcheck:
       test:
         - CMD
