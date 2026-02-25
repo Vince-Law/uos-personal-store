@@ -3,7 +3,7 @@ id: wild-gablota-nanobot
 category: productivity
 name: NanoBot
 icon: https://raw.githubusercontent.com/HKUDS/NanoBot/main/assets/logo/logo.png
-version: "0.1.4.post2-4"
+version: "0.1.4.post2-5"
 
 tagline: Multi-agent AI chatbot gateway for Telegram and more
 description: >-
@@ -31,10 +31,10 @@ path: /health
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  Fix NanoBot config schema for current image.
+  Fix NanoBot gateway bind address for Umbrel proxy.
 
-    - Generates a valid `providers`-based NanoBot config schema
-    - Auto-migrates previously generated invalid template config
+    - Forces NanoBot gateway to listen on `0.0.0.0:18790` so Umbrel `app_proxy` can reach it
+    - Keeps valid `providers`-based config bootstrap and migration logic
     - Keeps config persisted under Umbrel app data
     - Cloudflare Tunnel-friendly proxy setup (no auth injection)
 
