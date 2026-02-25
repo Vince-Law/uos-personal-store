@@ -3,7 +3,7 @@ id: wild-gablota-nanobot
 category: productivity
 name: NanoBot
 icon: https://raw.githubusercontent.com/HKUDS/NanoBot/main/assets/logo/logo.png
-version: "0.1.4.post2-8"
+version: "0.1.4.post2-9"
 
 tagline: Multi-agent AI chatbot gateway for Telegram and more
 description: >-
@@ -31,10 +31,11 @@ path: /health
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  Fix endpoint reachability when NanoBot binds loopback only.
+  Stabilize loopback bridge startup for Umbrel proxy.
 
-    - Adds a sidecar TCP bridge in the app network namespace to expose NanoBot loopback port to Umbrel `app_proxy`
-    - `app_proxy` now connects to bridge port `18791`
+    - Starts loopback bridge only after NanoBot healthcheck passes
+    - Keeps socat bridge running in a restart loop to survive early/refused probe connections
+    - `app_proxy` continues to connect to bridge port `18791`
     - Keeps explicit `gateway.host` / `gateway.port` config bootstrap and migration logic
     - Keeps valid `providers`-based config bootstrap and migration logic
     - Keeps config persisted under Umbrel app data

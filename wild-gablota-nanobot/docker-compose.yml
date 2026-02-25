@@ -53,7 +53,14 @@ services:
     restart: on-failure
     network_mode: service:app
     depends_on:
-      - app
+      app:
+        condition: service_healthy
+    entrypoint:
+      - sh
+      - -c
     command:
-      - TCP-LISTEN:18791,fork,bind=0.0.0.0,reuseaddr
-      - TCP:127.0.0.1:18790
+      - >
+        while true; do
+          socat TCP-LISTEN:18791,fork,bind=0.0.0.0,reuseaddr TCP:127.0.0.1:18790;
+          sleep 1;
+        done
