@@ -10,7 +10,7 @@ services:
       - 8.8.8.8
     container_name: wild-gablota-nanobot_app_proxy_1
 
-  app:
+  nanobot:
     image: jerryin/nanobot:latest
     restart: on-failure
     stop_grace_period: 1m
@@ -52,21 +52,23 @@ services:
       timeout: 10s
       retries: 5
       start_period: 45s
-    container_name: wild-gablota-nanobot_app_1
+    container_name: wild-gablota-nanobot_nanobot_1
 
-  loopback_bridge:
-    image: alpine/socat:1.8.0.3
+  app:
+    image: nicolaka/netshoot:latest
     restart: on-failure
-    network_mode: service:app
+    network_mode: service:nanobot
     healthcheck:
       test:
         - CMD
-        - /bin/true
+        - curl
+        - -s
+        - http://127.0.0.1:18791/health
       interval: 30s
       timeout: 5s
-      retries: 1
+      retries: 5
     depends_on:
-      app:
+      nanobot:
         condition: service_healthy
     entrypoint:
       - sh
@@ -77,3 +79,4 @@ services:
           socat TCP-LISTEN:18791,fork,bind=0.0.0.0,reuseaddr TCP:127.0.0.1:18790;
           sleep 1;
         done
+    container_name: wild-gablota-nanobot_app_1
