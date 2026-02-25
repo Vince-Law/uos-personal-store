@@ -3,7 +3,7 @@ id: wild-gablota-nanobot
 category: productivity
 name: NanoBot
 icon: https://raw.githubusercontent.com/HKUDS/NanoBot/main/assets/logo/logo.png
-version: "0.1.4.post2-15"
+version: "0.1.4.post2-16"
 
 tagline: Multi-agent AI chatbot gateway for Telegram and more
 description: >-
@@ -31,11 +31,11 @@ path: /health
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  Build a NanoBot wrapper image with real curl for Umbrel install healthchecks.
+  Revert local-build image strategy (Umbrel pre-pulls images) and keep writable curl shim workaround.
 
-    - Builds a local wrapper image from `jerryin/nanobot:latest` and installs `curl`
-    - Avoids dependency on Umbrel legacy healthcheck behavior and PATH assumptions
-    - Keeps the writable `curl` shim fallback in app data PATH for extra compatibility
+    - Reverts `build:` because Umbrel legacy installer pre-pulls images and fails before local build
+    - Restores pullable `jerryin/nanobot:latest`
+    - Keeps writable PATH-based `curl` shim workaround (`/root/.nanobot/bin/curl`)
     - Replaces inherited `curl`-based healthcheck on `alpine/socat` with explicit no-op `CMD /bin/true`
     - Starts loopback bridge only after NanoBot healthcheck passes
     - Keeps socat bridge running in a restart loop to survive early/refused probe connections

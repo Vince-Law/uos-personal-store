@@ -11,10 +11,7 @@ services:
     container_name: wild-gablota-nanobot_app_proxy_1
 
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: wild-gablota-nanobot-app:0.1.4.post2-15
+    image: jerryin/nanobot:latest
     restart: on-failure
     stop_grace_period: 1m
     init: true
