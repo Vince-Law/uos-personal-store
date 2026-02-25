@@ -21,10 +21,10 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/nanobot:/root/.nanobot
       - ./config.template.json:/opt/nanobot-umbrel/config.template.json:ro
-      - ./start-nanobot.sh:/usr/local/bin/start-nanobot.sh:ro
+      - ./start-nanobot.py:/usr/local/bin/start-nanobot.py:ro
     entrypoint:
-      - sh
-      - /usr/local/bin/start-nanobot.sh
+      - python
+      - /usr/local/bin/start-nanobot.py
     healthcheck:
       test:
         - CMD
