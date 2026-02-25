@@ -11,7 +11,7 @@ services:
     container_name: wild-gablota-nanobot_app_proxy_1
 
   app:
-    image: maksimab/nanobot:0.1.4.post2-umbrel1
+    image: maksimab/nanobot:0.1.4.post2-umbrel2
     restart: on-failure
     stop_grace_period: 1m
     init: true

@@ -3,7 +3,7 @@ id: wild-gablota-nanobot
 category: productivity
 name: NanoBot
 icon: https://raw.githubusercontent.com/HKUDS/NanoBot/main/assets/logo/logo.png
-version: "0.1.4.post2-24"
+version: "0.1.4.post2-25"
 
 tagline: Multi-agent AI chatbot gateway for Telegram and more
 description: >-
@@ -31,11 +31,13 @@ path: /health
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  Fix Umbrel proxy backend resolution by targeting the explicit NanoBot container name.
+  Add a minimal built-in admin page with first-time login setup and basic config editing.
 
     - Single `app` service + Umbrel `app_proxy`
-    - Bundled image `maksimab/nanobot:0.1.4.post2-umbrel1` is now multi-arch (`amd64` + `arm64`)
+    - Bundled image `maksimab/nanobot:0.1.4.post2-umbrel2` is multi-arch (`amd64` + `arm64`)
     - `app_proxy` now uses `APP_HOST=wild-gablota-nanobot_app_1` (avoids stale `app` DNS alias IPs causing `502`)
+    - `/` now serves a minimal admin page (first-time username/password setup + login)
+    - Admin page supports basic config edits (OpenAI key/model + Telegram settings)
     - Uses `nanobot gateway --host 0.0.0.0 --port 18790`
     - Uses real `/health` endpoint for healthcheck
     - Gateway runtime keeps running correctly when no channels are enabled
