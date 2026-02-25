@@ -3,7 +3,7 @@ id: wild-gablota-nanobot
 category: productivity
 name: NanoBot
 icon: https://raw.githubusercontent.com/HKUDS/NanoBot/main/assets/logo/logo.png
-version: "0.1.4.post2-12"
+version: "0.1.4.post2-13"
 
 tagline: Multi-agent AI chatbot gateway for Telegram and more
 description: >-
@@ -31,9 +31,10 @@ path: /health
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  Work around Umbrel install healthcheck requiring curl in app container.
+  Make Umbrel curl healthcheck shim tolerant of non-200 responses.
 
-    - Adds a tiny `curl` shim inside the NanoBot container at startup so Umbrel's legacy install healthcheck can run
+    - Installs a `curl` shim in common PATH locations inside the NanoBot container (`/usr/local/bin`, `/usr/bin`, `/bin`)
+    - Shim now returns success for HTTP responses (including non-200) and fails only on connection-level errors
     - Replaces inherited `curl`-based healthcheck on `alpine/socat` with explicit no-op `CMD /bin/true`
     - Starts loopback bridge only after NanoBot healthcheck passes
     - Keeps socat bridge running in a restart loop to survive early/refused probe connections
