@@ -26,11 +26,19 @@ services:
       - python
       - -c
       - >-
-        import json, os;
+        import json, os, shutil, subprocess;
         d="/root/.nanobot"; c=f"{d}/config.json"; p=f"{d}/prompts.md"; m=f"{d}/mcp_servers.json";
         b=f"{d}/bin"; curl_shim=f"{b}/curl";
         os.makedirs(d, exist_ok=True);
         os.makedirs(b, exist_ok=True);
+        if shutil.which("curl") is None:
+         cmds=(["apk","add","--no-cache","curl"],["apt-get","update"],["apt-get","install","-y","--no-install-recommends","curl"],["microdnf","install","-y","curl"],["dnf","install","-y","curl"]);
+         for cmd in cmds:
+          try:
+           subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+           break
+          except Exception:
+           pass
         open(curl_shim,"w",encoding="utf-8").write("#!/usr/local/bin/python\nimport sys, urllib.request\nargs=sys.argv[1:]\nurl=next((a for a in args if a.startswith('http://') or a.startswith('https://')), None)\nif not url: sys.exit(2)\nsilent=('-s' in args) or ('--silent' in args)\ntry:\n r=urllib.request.urlopen(url, timeout=5)\n body=r.read()\n if not silent:\n  sys.stdout.buffer.write(body)\n sys.exit(0)\nexcept urllib.error.HTTPError as e:\n body=e.read() if hasattr(e,'read') else b''\n if not silent and body:\n  sys.stdout.buffer.write(body)\n sys.exit(0)\nexcept Exception:\n sys.exit(7)\n");
         os.chmod(curl_shim,0o755);
         tmpl={"providers":{"openai":{"apiKey":"CHANGE_ME_OPENAI_API_KEY"}},"agents":{"defaults":{"model":"openai/gpt-4o-mini","workspace":"~/.nanobot/workspace"}},"gateway":{"host":"0.0.0.0","port":18790},"channels":{"telegram":{"enabled":False,"token":"CHANGE_ME_TELEGRAM_BOT_TOKEN","allowFrom":["123456789"]}}};
@@ -69,8 +77,8 @@ services:
       nanobot:
         condition: service_started
     entrypoint:
-      - sh
-      - -c
+    - sh
+    - -c
     command:
       - >
         while true; do
