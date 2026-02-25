@@ -52,6 +52,8 @@ services:
     image: alpine/socat:1.8.0.3
     restart: on-failure
     network_mode: service:app
+    healthcheck:
+      disable: true
     depends_on:
       app:
         condition: service_healthy
