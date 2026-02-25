@@ -3,7 +3,7 @@ id: wild-gablota-nanobot
 category: productivity
 name: NanoBot
 icon: https://raw.githubusercontent.com/HKUDS/NanoBot/main/assets/logo/logo.png
-version: "0.1.4.post2-1"
+version: "0.1.4.post2-2"
 
 tagline: Multi-agent AI chatbot gateway for Telegram and more
 description: >-
@@ -31,9 +31,9 @@ path: /health
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  Initial Umbrel community package for NanoBot.
+  Fix GHCR pull denial and NanoBot gateway port.
 
-    - Runs official NanoBot container image
+    - Switches to Docker Hub mirror image (`jerryin/nanobot:latest`) because GHCR access may return 403 on Umbrel
     - Persists config under Umbrel app data
     - Telegram-ready config template (disabled until configured)
     - Cloudflare Tunnel-friendly proxy setup (no auth injection)

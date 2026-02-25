@@ -3,7 +3,7 @@ services:
   app_proxy:
     environment:
       APP_HOST: wild-gablota-nanobot_app_1
-      APP_PORT: 8080
+      APP_PORT: 18790
       PROXY_AUTH_ADD: 'false'
     dns:
       - 1.1.1.1
@@ -11,7 +11,7 @@ services:
     container_name: wild-gablota-nanobot_app_proxy_1
 
   app:
-    image: ghcr.io/hkuds/nanobot:0.1.4.post2
+    image: jerryin/nanobot:latest
     restart: on-failure
     stop_grace_period: 1m
     init: true
@@ -32,7 +32,7 @@ services:
         - -c
         - >-
           import sys,urllib.request;
-          sys.exit(0 if urllib.request.urlopen("http://127.0.0.1:8080/health", timeout=5).getcode()==200 else 1)
+          sys.exit(0 if urllib.request.urlopen("http://127.0.0.1:18790/health", timeout=5).getcode()==200 else 1)
       interval: 30s
       timeout: 10s
       retries: 5

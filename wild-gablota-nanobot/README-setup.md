@@ -14,6 +14,10 @@ Update at least:
 - `channels.telegram.bot_token` -> your Telegram bot token
 - `channels.telegram.allow_list` -> your Telegram chat/user IDs (strings)
 
+Image note:
+
+- This package currently uses `jerryin/nanobot:latest` (Docker Hub mirror) because some Umbrel installs receive `403 denied` when pulling `ghcr.io/hkuds/nanobot`.
+
 ## 2) Restart the app
 
 Restart from Umbrel UI after editing the config.
