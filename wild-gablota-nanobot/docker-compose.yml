@@ -2,7 +2,7 @@ version: '3.8'
 services:
   app_proxy:
     environment:
-      APP_HOST: app
+      APP_HOST: wild-gablota-nanobot_app_1
       APP_PORT: 18790
       PROXY_AUTH_ADD: 'false'
     dns:
