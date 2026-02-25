@@ -3,7 +3,7 @@ id: wild-gablota-nanobot
 category: productivity
 name: NanoBot
 icon: https://raw.githubusercontent.com/HKUDS/NanoBot/main/assets/logo/logo.png
-version: "0.1.4.post2-10"
+version: "0.1.4.post2-11"
 
 tagline: Multi-agent AI chatbot gateway for Telegram and more
 description: >-
@@ -31,9 +31,9 @@ path: /health
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  Disable broken sidecar image healthcheck and stabilize bridge startup.
+  Override sidecar image healthcheck for Umbrel compatibility.
 
-    - Disables inherited `curl`-based healthcheck on the `alpine/socat` loopback bridge image (curl not present)
+    - Replaces inherited `curl`-based healthcheck on `alpine/socat` with explicit no-op `CMD /bin/true`
     - Starts loopback bridge only after NanoBot healthcheck passes
     - Keeps socat bridge running in a restart loop to survive early/refused probe connections
     - `app_proxy` continues to connect to bridge port `18791`
