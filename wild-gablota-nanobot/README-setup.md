@@ -1,6 +1,6 @@
 # NanoBot on Umbrel (Cloudflare Tunnel Ready)
 
-## 0) Build and publish your patched NanoBot image first
+## 0) Build and publish your patched NanoBot image first (multi-arch for Umbrel ARM)
 
 This Umbrel package is now designed for a **custom image built from patched `HKUDS/NanoBot` source** (not `jerryin/nanobot`).
 
@@ -9,18 +9,26 @@ Required upstream fixes:
 - `nanobot gateway` supports `--host`
 - gateway starts an HTTP listener exposing `GET /health`
 
-Build locally from the patched upstream checkout (example):
+Build and push a multi-arch image from the patched upstream checkout (example for Docker Hub):
 
 ```bash
 cd _nanobot_upstream
-docker build -t nanobot-hostfix:0.1.4.post2-umbrel1 .
+docker buildx build \
+  --platform linux/amd64,linux/arm64 \
+  -t <your-user>/nanobot-hostfix:0.1.4.post2-umbrel1 \
+  --push \
+  .
 ```
 
-Tag and push to your registry (replace with your Docker Hub or GHCR repo):
+Or for GHCR:
 
 ```bash
-docker tag nanobot-hostfix:0.1.4.post2-umbrel1 ghcr.io/<your-user>/nanobot-hostfix:0.1.4.post2-umbrel1
-docker push ghcr.io/<your-user>/nanobot-hostfix:0.1.4.post2-umbrel1
+cd _nanobot_upstream
+docker buildx build \
+  --platform linux/amd64,linux/arm64 \
+  -t ghcr.io/<your-user>/nanobot-hostfix:0.1.4.post2-umbrel1 \
+  --push \
+  .
 ```
 
 Then edit `wild-gablota-nanobot/docker-compose.yml` and replace:
@@ -28,6 +36,8 @@ Then edit `wild-gablota-nanobot/docker-compose.yml` and replace:
 - `ghcr.io/REPLACE_ME/nanobot-hostfix:0.1.4.post2-umbrel1`
 
 with your published image.
+
+If you see `no matching manifest for linux/arm64/v8`, the pushed image tag does not include an ARM64 manifest. Re-push with `docker buildx build --platform ... --push` as shown above.
 
 ## 1) Edit NanoBot config after first start
 
@@ -47,6 +57,7 @@ Notes:
 
 - The app bootstrap still auto-rewrites the older invalid template format to NanoBot's current `providers`-based format on startup.
 - The patched image is expected to include `curl` (Umbrel legacy installer healthcheck requirement).
+- Umbrel on Raspberry Pi requires an image manifest that includes `linux/arm64` (or `linux/arm64/v8`).
 
 ## 2) Restart the app
 
