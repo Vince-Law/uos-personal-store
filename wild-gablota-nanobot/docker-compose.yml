@@ -32,7 +32,7 @@ services:
         os.path.exists(c) and (lambda t:(("\"providers\"" not in t) and (("\"llm_services\"" in t) or ("\"gateway_api_keys\"" in t))) and open(c,"w",encoding="utf-8").write(json.dumps(tmpl,indent=2)))(open(c,"r",encoding="utf-8").read());
         (not os.path.exists(p)) and open(p,"w",encoding="utf-8").write("# NanoBot prompts\n");
         (not os.path.exists(m)) and open(m,"w",encoding="utf-8").write("{}\n");
-        os.execvp("nanobot",["nanobot","gateway","--host","0.0.0.0","--port","18790"])
+        os.execvp("nanobot",["nanobot","gateway"])
     healthcheck:
       test:
         - CMD
