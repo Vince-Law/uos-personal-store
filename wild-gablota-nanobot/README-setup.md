@@ -1,5 +1,34 @@
 # NanoBot on Umbrel (Cloudflare Tunnel Ready)
 
+## 0) Build and publish your patched NanoBot image first
+
+This Umbrel package is now designed for a **custom image built from patched `HKUDS/NanoBot` source** (not `jerryin/nanobot`).
+
+Required upstream fixes:
+
+- `nanobot gateway` supports `--host`
+- gateway starts an HTTP listener exposing `GET /health`
+
+Build locally from the patched upstream checkout (example):
+
+```bash
+cd _nanobot_upstream
+docker build -t nanobot-hostfix:0.1.4.post2-umbrel1 .
+```
+
+Tag and push to your registry (replace with your Docker Hub or GHCR repo):
+
+```bash
+docker tag nanobot-hostfix:0.1.4.post2-umbrel1 ghcr.io/<your-user>/nanobot-hostfix:0.1.4.post2-umbrel1
+docker push ghcr.io/<your-user>/nanobot-hostfix:0.1.4.post2-umbrel1
+```
+
+Then edit `wild-gablota-nanobot/docker-compose.yml` and replace:
+
+- `ghcr.io/REPLACE_ME/nanobot-hostfix:0.1.4.post2-umbrel1`
+
+with your published image.
+
 ## 1) Edit NanoBot config after first start
 
 First app start creates the NanoBot config here:
@@ -14,10 +43,10 @@ Update at least:
 - `channels.telegram.token` -> your Telegram bot token
 - `channels.telegram.allowFrom` -> your Telegram chat/user IDs (strings)
 
-Image note:
+Notes:
 
-- This package currently uses `jerryin/nanobot:latest` (Docker Hub mirror) because some Umbrel installs receive `403 denied` when pulling `ghcr.io/hkuds/nanobot`.
-- If you already installed an older package revision, this app now auto-rewrites the old invalid template format to NanoBot's current `providers`-based format on startup.
+- The app bootstrap still auto-rewrites the older invalid template format to NanoBot's current `providers`-based format on startup.
+- The patched image is expected to include `curl` (Umbrel legacy installer healthcheck requirement).
 
 ## 2) Restart the app
 
@@ -38,8 +67,8 @@ Notes:
 ## 4) Useful endpoints (through Umbrel or your Cloudflare hostname)
 
 - `GET /health`
-- `POST /v1/chat/completions`
-- `POST /v1/callback/telegram`
+- `POST /v1/chat/completions` (if/when implemented by your NanoBot build)
+- `POST /v1/callback/telegram` (if you configure webhook mode)
 
 ## 5) Telegram callback URL example (if you choose webhook mode)
 

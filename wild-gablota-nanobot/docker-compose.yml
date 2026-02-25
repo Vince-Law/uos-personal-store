@@ -3,15 +3,15 @@ services:
   app_proxy:
     environment:
       APP_HOST: app
-      APP_PORT: 18791
+      APP_PORT: 18790
       PROXY_AUTH_ADD: 'false'
     dns:
       - 1.1.1.1
       - 8.8.8.8
     container_name: wild-gablota-nanobot_app_proxy_1
 
-  nanobot:
-    image: jerryin/nanobot:latest
+  app:
+    image: maksimab/nanobot:0.1.4.post2-umbrel1
     restart: on-failure
     stop_grace_period: 1m
     init: true
@@ -33,42 +33,15 @@ services:
         os.path.exists(c) and (lambda j: (j.setdefault("gateway", {"host":"0.0.0.0","port":18790}) is not None) and open(c,"w",encoding="utf-8").write(json.dumps(j,indent=2)))(json.load(open(c,"r",encoding="utf-8"))) if os.path.exists(c) else None;
         (not os.path.exists(p)) and open(p,"w",encoding="utf-8").write("# NanoBot prompts\n");
         (not os.path.exists(m)) and open(m,"w",encoding="utf-8").write("{}\n");
-        os.execvp("nanobot",["nanobot","gateway"])
-    healthcheck:
-      test:
-        - CMD
-        - python
-        - -c
-        - import sys; sys.exit(0)
-      interval: 30s
-      timeout: 5s
-      retries: 1
-      start_period: 1s
-    container_name: wild-gablota-nanobot_nanobot_1
-
-  app:
-    image: nicolaka/netshoot:latest
-    restart: on-failure
-    network_mode: service:nanobot
+        os.execvp("nanobot",["nanobot","gateway","--host","0.0.0.0","--port","18790"])
     healthcheck:
       test:
         - CMD
         - curl
-        - -s
-        - http://127.0.0.1:18791/health
+        - -fsS
+        - http://127.0.0.1:18790/health
       interval: 30s
       timeout: 5s
       retries: 5
-    depends_on:
-      nanobot:
-        condition: service_started
-    entrypoint:
-    - sh
-    - -c
-    command:
-      - >
-        while true; do
-          socat TCP-LISTEN:18791,fork,bind=0.0.0.0,reuseaddr TCP:127.0.0.1:18790;
-          sleep 1;
-        done
+      start_period: 15s
     container_name: wild-gablota-nanobot_app_1

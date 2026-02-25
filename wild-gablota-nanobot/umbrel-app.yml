@@ -3,7 +3,7 @@ id: wild-gablota-nanobot
 category: productivity
 name: NanoBot
 icon: https://raw.githubusercontent.com/HKUDS/NanoBot/main/assets/logo/logo.png
-version: "0.1.4.post2-20"
+version: "0.1.4.post2-22"
 
 tagline: Multi-agent AI chatbot gateway for Telegram and more
 description: >-
@@ -31,23 +31,12 @@ path: /health
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  Remove NanoBot runtime package-manager hack; keep curl-capable bridge topology.
+  Clean package for patched NanoBot image `maksimab/nanobot:0.1.4.post2-umbrel1` (no Umbrel-side curl/bridge workarounds).
 
-    - NanoBot now runs in a separate `nanobot` service (`wild-gablota-nanobot_nanobot_1`)
-    - `app_1` is a `netshoot` bridge container (includes `curl`) that forwards `18791 -> 127.0.0.1:18790`
-    - Umbrel's legacy `curl` healthcheck now runs against the bridge container, not the NanoBot image
-    - `app_proxy` continues to target `app:18791`
-    - Removes NanoBot runtime package-manager install attempts that can crash/restart the container during install
-    - Keeps `app_1` as a curl-capable bridge container, which is the intended Umbrel healthcheck target
-    - NanoBot service healthcheck remains no-op (prevents install failure on transient/strict `/health` semantics)
-    - Bridge starts after NanoBot container is started, then waits/retries until NanoBot is actually reachable
-    - Keeps writable PATH-based `curl` shim fallback in NanoBot service for extra compatibility
-    - Starts loopback bridge only after NanoBot healthcheck passes
-    - Keeps socat bridge running in a restart loop to survive early/refused probe connections
-    - `app_proxy` continues to connect to bridge port `18791`
-    - Keeps explicit `gateway.host` / `gateway.port` config bootstrap and migration logic
-    - Keeps valid `providers`-based config bootstrap and migration logic
-    - Keeps config persisted under Umbrel app data
-    - Cloudflare Tunnel-friendly proxy setup (no auth injection)
+    - Single `app` service + Umbrel `app_proxy`
+    - Expects a custom NanoBot image built from patched HKUDS/NanoBot source
+    - Uses `nanobot gateway --host 0.0.0.0 --port 18790`
+    - Uses real `/health` endpoint for healthcheck
+    - Keeps config bootstrap/migration and Cloudflare Tunnel-friendly proxy settings
 
 torOnly: false
