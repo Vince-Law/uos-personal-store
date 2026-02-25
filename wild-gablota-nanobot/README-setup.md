@@ -8,15 +8,16 @@ First app start creates the NanoBot config here:
 
 Update at least:
 
-- `llm_services[0].api_key` -> your provider API key
-- `gateway_api_keys[0]` -> strong random API key used by NanoBot gateway clients
+- `providers.openai.apiKey` -> your provider API key (or configure another provider under `providers`)
+- `agents.defaults.model` -> model id matching your provider (example: `openai/gpt-4o-mini`, `openrouter/anthropic/claude-sonnet-4`)
 - `channels.telegram.enabled` -> `true`
-- `channels.telegram.bot_token` -> your Telegram bot token
-- `channels.telegram.allow_list` -> your Telegram chat/user IDs (strings)
+- `channels.telegram.token` -> your Telegram bot token
+- `channels.telegram.allowFrom` -> your Telegram chat/user IDs (strings)
 
 Image note:
 
 - This package currently uses `jerryin/nanobot:latest` (Docker Hub mirror) because some Umbrel installs receive `403 denied` when pulling `ghcr.io/hkuds/nanobot`.
+- If you already installed an older package revision, this app now auto-rewrites the old invalid template format to NanoBot's current `providers`-based format on startup.
 
 ## 2) Restart the app
 

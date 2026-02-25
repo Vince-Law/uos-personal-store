@@ -3,7 +3,7 @@ id: wild-gablota-nanobot
 category: productivity
 name: NanoBot
 icon: https://raw.githubusercontent.com/HKUDS/NanoBot/main/assets/logo/logo.png
-version: "0.1.4.post2-3"
+version: "0.1.4.post2-4"
 
 tagline: Multi-agent AI chatbot gateway for Telegram and more
 description: >-
@@ -31,9 +31,10 @@ path: /health
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  Fix startup bootstrap mounting for Umbrel.
+  Fix NanoBot config schema for current image.
 
-    - Replaces mounted bootstrap script with inline Python bootstrap (avoids missing-file bind mount issue)
+    - Generates a valid `providers`-based NanoBot config schema
+    - Auto-migrates previously generated invalid template config
     - Keeps config persisted under Umbrel app data
     - Cloudflare Tunnel-friendly proxy setup (no auth injection)
 
