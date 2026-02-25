@@ -3,7 +3,7 @@ id: wild-gablota-nanobot
 category: productivity
 name: NanoBot
 icon: https://raw.githubusercontent.com/HKUDS/NanoBot/main/assets/logo/logo.png
-version: "0.1.4.post2-19"
+version: "0.1.4.post2-20"
 
 tagline: Multi-agent AI chatbot gateway for Telegram and more
 description: >-
@@ -31,13 +31,14 @@ path: /health
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  Install real curl in NanoBot container at runtime to satisfy Umbrel healthchecks.
+  Remove NanoBot runtime package-manager hack; keep curl-capable bridge topology.
 
     - NanoBot now runs in a separate `nanobot` service (`wild-gablota-nanobot_nanobot_1`)
     - `app_1` is a `netshoot` bridge container (includes `curl`) that forwards `18791 -> 127.0.0.1:18790`
     - Umbrel's legacy `curl` healthcheck now runs against the bridge container, not the NanoBot image
     - `app_proxy` continues to target `app:18791`
-    - NanoBot startup now attempts to install real `curl` (apk/apt/microdnf/dnf) before launching NanoBot
+    - Removes NanoBot runtime package-manager install attempts that can crash/restart the container during install
+    - Keeps `app_1` as a curl-capable bridge container, which is the intended Umbrel healthcheck target
     - NanoBot service healthcheck remains no-op (prevents install failure on transient/strict `/health` semantics)
     - Bridge starts after NanoBot container is started, then waits/retries until NanoBot is actually reachable
     - Keeps writable PATH-based `curl` shim fallback in NanoBot service for extra compatibility
