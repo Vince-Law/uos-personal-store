@@ -1,0 +1,41 @@
+manifestVersion: 1
+id: wild-gablota-nanobot
+category: productivity
+name: NanoBot
+icon: https://raw.githubusercontent.com/HKUDS/NanoBot/main/assets/logo/logo.png
+version: "0.1.4.post2-1"
+
+tagline: Multi-agent AI chatbot gateway for Telegram and more
+description: >-
+  NanoBot is a self-hosted AI chatbot framework and HTTP gateway for chat channels
+  such as Telegram. This Umbrel package runs NanoBot in a container with persistent
+  configuration stored in Umbrel app data.
+
+
+  It is configured to work well behind Umbrel's app proxy so you can expose it to the
+  public internet through your existing Cloudflare Tunnel on Raspberry Pi.
+
+
+  First start creates a default NanoBot config file and helper files in app data.
+  Update the config with your model provider API key and Telegram bot token, then
+  restart the app.
+
+developer: HKUDS
+website: https://github.com/HKUDS/NanoBot
+dependencies: []
+repo: https://github.com/HKUDS/NanoBot
+support: https://github.com/HKUDS/NanoBot
+port: 1210
+gallery: []
+path: /health
+defaultUsername: ""
+defaultPassword: ""
+releaseNotes: >-
+  Initial Umbrel community package for NanoBot.
+
+    - Runs official NanoBot container image
+    - Persists config under Umbrel app data
+    - Telegram-ready config template (disabled until configured)
+    - Cloudflare Tunnel-friendly proxy setup (no auth injection)
+
+torOnly: false

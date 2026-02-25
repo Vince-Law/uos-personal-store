@@ -1,0 +1,40 @@
+version: '3.8'
+services:
+  app_proxy:
+    environment:
+      APP_HOST: wild-gablota-nanobot_app_1
+      APP_PORT: 8080
+      PROXY_AUTH_ADD: 'false'
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
+    container_name: wild-gablota-nanobot_app_proxy_1
+
+  app:
+    image: ghcr.io/hkuds/nanobot:0.1.4.post2
+    restart: on-failure
+    stop_grace_period: 1m
+    init: true
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
+    volumes:
+      - ${APP_DATA_DIR}/data/nanobot:/root/.nanobot
+      - ./config.template.json:/opt/nanobot-umbrel/config.template.json:ro
+      - ./start-nanobot.sh:/usr/local/bin/start-nanobot.sh:ro
+    command:
+      - sh
+      - /usr/local/bin/start-nanobot.sh
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - >-
+          import sys,urllib.request;
+          sys.exit(0 if urllib.request.urlopen("http://127.0.0.1:8080/health", timeout=5).getcode()==200 else 1)
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 45s
+    container_name: wild-gablota-nanobot_app_1

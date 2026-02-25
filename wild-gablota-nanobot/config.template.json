@@ -1,0 +1,59 @@
+{
+  "system_settings": {
+    "language": "en-US",
+    "safe_mode": true,
+    "web_search_enabled": false,
+    "clear_history_on_restart": false,
+    "enable_history": true,
+    "timezone": "UTC"
+  },
+  "llm_services": [
+    {
+      "service_id": "openai",
+      "provider": "openai",
+      "api_key": "CHANGE_ME_OPENAI_API_KEY",
+      "models": [
+        {
+          "model_id": "gpt-4.1-mini",
+          "name": "gpt-4.1-mini"
+        }
+      ],
+      "tools": {
+        "web_search": {
+          "type": "disabled",
+          "params": {}
+        }
+      }
+    }
+  ],
+  "agents": {
+    "assistant": {
+      "description": "Default assistant agent",
+      "instruction": "You are a helpful assistant.",
+      "llm_service_id": "openai",
+      "llm_model_id": "gpt-4.1-mini",
+      "mcp_servers": [],
+      "enable_history": true
+    }
+  },
+  "system_prompt": "You are a helpful assistant.",
+  "gateway_api_keys": [
+    "CHANGE_ME_STRONG_GATEWAY_API_KEY"
+  ],
+  "prompts_md_path": "/root/.nanobot/prompts.md",
+  "mcp_servers_json_path": "/root/.nanobot/mcp_servers.json",
+  "channels": {
+    "telegram": {
+      "enabled": false,
+      "bot_token": "CHANGE_ME_TELEGRAM_BOT_TOKEN",
+      "bot_username": "",
+      "allow_list": [
+        "123456789"
+      ],
+      "enable_messages": true,
+      "enable_voice_transcription": false,
+      "enable_sending_voice": false,
+      "voice_model": "gpt-4o-mini-transcribe"
+    }
+  }
+}
