@@ -2,7 +2,7 @@ version: '3.8'
 services:
   app_proxy:
     environment:
-      APP_HOST: wild-gablota-nanobot_app_1
+      APP_HOST: app
       APP_PORT: 18790
       PROXY_AUTH_ADD: 'false'
     dns:
@@ -27,9 +27,10 @@ services:
         import json, os;
         d="/root/.nanobot"; c=f"{d}/config.json"; p=f"{d}/prompts.md"; m=f"{d}/mcp_servers.json";
         os.makedirs(d, exist_ok=True);
-        tmpl={"providers":{"openai":{"apiKey":"CHANGE_ME_OPENAI_API_KEY"}},"agents":{"defaults":{"model":"openai/gpt-4o-mini","workspace":"~/.nanobot/workspace"}},"channels":{"telegram":{"enabled":False,"token":"CHANGE_ME_TELEGRAM_BOT_TOKEN","allowFrom":["123456789"]}}};
+        tmpl={"providers":{"openai":{"apiKey":"CHANGE_ME_OPENAI_API_KEY"}},"agents":{"defaults":{"model":"openai/gpt-4o-mini","workspace":"~/.nanobot/workspace"}},"gateway":{"host":"0.0.0.0","port":18790},"channels":{"telegram":{"enabled":False,"token":"CHANGE_ME_TELEGRAM_BOT_TOKEN","allowFrom":["123456789"]}}};
         (not os.path.exists(c)) and open(c,"w",encoding="utf-8").write(json.dumps(tmpl,indent=2));
         os.path.exists(c) and (lambda t:(("\"providers\"" not in t) and (("\"llm_services\"" in t) or ("\"gateway_api_keys\"" in t))) and open(c,"w",encoding="utf-8").write(json.dumps(tmpl,indent=2)))(open(c,"r",encoding="utf-8").read());
+        os.path.exists(c) and (lambda j: (j.setdefault("gateway", {"host":"0.0.0.0","port":18790}) is not None) and open(c,"w",encoding="utf-8").write(json.dumps(j,indent=2)))(json.load(open(c,"r",encoding="utf-8"))) if os.path.exists(c) else None;
         (not os.path.exists(p)) and open(p,"w",encoding="utf-8").write("# NanoBot prompts\n");
         (not os.path.exists(m)) and open(m,"w",encoding="utf-8").write("{}\n");
         os.execvp("nanobot",["nanobot","gateway"])

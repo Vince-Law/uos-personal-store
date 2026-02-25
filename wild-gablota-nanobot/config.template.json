@@ -10,6 +10,10 @@
       "workspace": "~/.nanobot/workspace"
     }
   },
+  "gateway": {
+    "host": "0.0.0.0",
+    "port": 18790
+  },
   "channels": {
     "telegram": {
       "enabled": false,

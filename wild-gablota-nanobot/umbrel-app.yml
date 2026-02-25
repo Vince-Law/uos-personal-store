@@ -3,7 +3,7 @@ id: wild-gablota-nanobot
 category: productivity
 name: NanoBot
 icon: https://raw.githubusercontent.com/HKUDS/NanoBot/main/assets/logo/logo.png
-version: "0.1.4.post2-6"
+version: "0.1.4.post2-7"
 
 tagline: Multi-agent AI chatbot gateway for Telegram and more
 description: >-
@@ -31,10 +31,11 @@ path: /health
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  Fix invalid NanoBot gateway CLI flags.
+  Fix Umbrel proxy backend hostname and make gateway bind explicit.
 
-    - Removes unsupported `--host` flag that caused the NanoBot container to crash-loop
-    - Runs `nanobot gateway` with default gateway port (18790)
+    - `app_proxy` now targets the Compose service alias (`app`) instead of a hard-coded container name
+    - Generated config now explicitly sets `gateway.host=0.0.0.0` and `gateway.port=18790`
+    - Auto-adds `gateway` section to existing generated configs if missing
     - Keeps valid `providers`-based config bootstrap and migration logic
     - Keeps config persisted under Umbrel app data
     - Cloudflare Tunnel-friendly proxy setup (no auth injection)
