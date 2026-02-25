@@ -22,7 +22,7 @@ services:
       - ${APP_DATA_DIR}/data/nanobot:/root/.nanobot
       - ./config.template.json:/opt/nanobot-umbrel/config.template.json:ro
       - ./start-nanobot.sh:/usr/local/bin/start-nanobot.sh:ro
-    command:
+    entrypoint:
       - sh
       - /usr/local/bin/start-nanobot.sh
     healthcheck:
