@@ -3,7 +3,7 @@ id: wild-gablota-music-server
 category: media
 name: Music Stream
 icon: https://iili.io/fEa1mue.png
-version: "1.7.0"
+version: "1.8.0"
 
 tagline: Self-hosted music library streaming server
 description: >-
@@ -40,6 +40,35 @@ path: ""
 defaultUsername: admin
 defaultPassword: admin123
 releaseNotes: >-
+  Version 1.8.0 - Mobile Multi-User Parity
+
+    Mobile (Flutter):
+    - New bottom nav: Library / Browse / Server / More / Settings
+    - "Library" tab now scoped to your personal UserLibrary (was
+      previously the whole server)
+    - "Browse" tab — full server catalog with one-tap Add / In Library
+    - "Server" tab — list of users with their live now-playing card,
+      profile button, and Join (when host allows listen-along)
+    - "More" tab adds shortcuts for Upload + Notifications alongside
+      Liked Songs / Most Listened / Stats / Liked Albums
+    - Settings → Privacy section with 6 toggles (library visibility,
+      show liked songs / liked albums / most listened / now-playing,
+      allow listen-along)
+    - User Profile screen for browsing another user's public sections
+    - Upload screen using file_picker for FLAC/MP3/M4A/AAC/OGG/OPUS/WAV
+    - Notifications screen with mark-read + bell badge on Settings tab
+
+    Real-time:
+    - web_socket_channel client with auto-reconnect, JWT handshake,
+      shared infrastructure for presence + listen-along
+    - PlaybackProvider pushes now-playing on track / play / pause
+    - Guest mode: passive sync to host's state (track + position),
+      drift > 1s triggers a re-seek
+
+    Server (no breaking changes from 1.7.0)
+
+    Published Docker image maksimab/music-server:1.8.0
+
   Version 1.7.0 - Privacy, Presence, Listen-Along
 
     Privacy:
