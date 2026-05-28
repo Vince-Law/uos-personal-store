@@ -3,7 +3,7 @@ id: wild-gablota-music-server
 category: media
 name: Music Stream
 icon: https://iili.io/fEa1mue.png
-version: "1.6.0"
+version: "1.7.0"
 
 tagline: Self-hosted music library streaming server
 description: >-
@@ -40,6 +40,43 @@ path: ""
 defaultUsername: admin
 defaultPassword: admin123
 releaseNotes: >-
+  Version 1.7.0 - Privacy, Presence, Listen-Along
+
+    Privacy:
+    - Per-user privacy settings: library visibility (private/server),
+      show liked songs / liked albums / most listened / now playing,
+      and allow listen-along. Settings → new Privacy card with toggles
+    - Default for existing users stays private (no behaviour change
+      unless you opt in)
+    - GET/PUT /api/me/privacy and GET /api/me
+
+    Social / Presence:
+    - New "Server" tab listing every user on the server with their
+      role, public profile button, and (if shared) a live now-playing
+      card with a pulsing live-dot indicator
+    - User profile view shows another user's shared library, liked
+      songs / albums, and most listened, all gated by their privacy
+    - GET /api/server/users and /api/server/users/:id/profile
+
+    Real-time (WebSocket):
+    - New /api/realtime WS channel with JWT auth on connect
+    - Presence hub broadcasts now-playing updates to subscribers,
+      filtered by each user's showNowPlaying flag
+    - Auto-reconnect on disconnect; heartbeat every 45s
+    - Web client posts state on track change / play / pause and every
+      5s for drift correction
+
+    Listen-Along:
+    - Users who opt in via "Allow listen-along" automatically host a
+      session when they start playing
+    - Other users see a "Join" button on the listener card; on click
+      the guest player passively syncs to the host (track, position,
+      play/pause) with drift > 1s triggering a re-seek
+    - Listen-along banner in the player shows when guest mode is
+      active; click to leave
+
+    Published Docker image maksimab/music-server:1.7.0
+
   Version 1.6.0 - Multi-User Uploads + Personal Libraries
 
     Major Features:
