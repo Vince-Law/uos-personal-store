@@ -3,7 +3,7 @@ id: wild-gablota-music-server
 category: media
 name: Music Stream
 icon: https://iili.io/fEa1mue.png
-version: "1.5.0"
+version: "1.5.1"
 
 tagline: Self-hosted music library streaming server
 description: >-
@@ -40,6 +40,36 @@ path: ""
 defaultUsername: admin
 defaultPassword: admin123
 releaseNotes: >-
+  Version 1.5.1 - Web Player Hotfix
+
+    Server API:
+    - GET /api/liked-songs now returns a flat array of Song objects
+      (previously returned { likedSongs: [...] } with nested rows)
+    - GET /api/liked-albums filters out orphan likes whose album was
+      deleted (was returning HTTP 500 on such rows)
+    - GET /api/playback-stats/stats/top-by-minutes now includes song,
+      artist, and album data inline so clients can render full track
+      info without a second lookup
+
+    Web Player:
+    - Defensive response parsing in loadLikedSet / loadLikedAlbumSet
+      that accepts both the new flat array shape and the legacy
+      wrapped shape from older servers
+    - Fixed "Couldn't load songs" on album pages — server returns the
+      whole album object, client now unwraps the embedded songs[]
+    - Top Tracks rows on the Statistics page are now clickable and
+      start playing the selected track with the rest of the top list
+      queued
+    - Top Album and Top Artist rows on Statistics navigate to the
+      detail pages
+
+    Library:
+    - Liked Songs / Liked Albums counts on the Library shortcut tiles
+      and Most Listened all populate correctly now that the API
+      shapes match
+
+    Published Docker image maksimab/music-server:1.5.1
+
   Version 1.5.0 - Sodium Amber Redesign + Crossfade
 
     Major Features:
