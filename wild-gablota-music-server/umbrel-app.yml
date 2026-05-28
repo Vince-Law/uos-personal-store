@@ -3,7 +3,7 @@ id: wild-gablota-music-server
 category: media
 name: Music Stream
 icon: https://iili.io/fEa1mue.png
-version: "1.4.6"
+version: "1.5.0"
 
 tagline: Self-hosted music library streaming server
 description: >-
@@ -40,6 +40,55 @@ path: ""
 defaultUsername: admin
 defaultPassword: admin123
 releaseNotes: >-
+  Version 1.5.0 - Sodium Amber Redesign + Crossfade
+
+    Major Features:
+    - Full web player redesign with new Sodium Amber visual system (warm near-black
+      surfaces, sodium-amber accent, Fraunces editorial serif headings, Inter UI,
+      JetBrains Mono numerics)
+    - Crossfade and gapless playback engine in both mobile and web — single slider
+      0-12 seconds (0 = gapless instant-swap, >0 = volume crossfade over N seconds)
+    - Dual-audio engine handles preload, volume tween, and seamless track transitions
+      with proper cancel-on-skip and pause behaviour
+    - New "Statistics" view with TOTAL TIME hero and Top Tracks / Albums / Artists
+    - New "Liked Albums" full-page grid view
+    - New "Settings" page in the web player with crossfade control and sign-out
+
+    Web Player Rewrite:
+    - Full rewrite of player.html / player.js (~1300 lines) with sidebar navigation,
+      hero-styled view headers, accent active-indicator, and an editorial empty state
+      for search
+    - Live search across artists, liked albums, and the playback-stats pool with
+      220ms debounce and grouped Artists / Albums / Songs results
+    - Album hero strip with palette-tinted cover, accent eyebrow, large display
+      title, and pill action row (Play all / Add to queue / Like album)
+    - Floating now-playing bar with accent play button (with glow), animated
+      equalizer indicator on the currently playing row, queue sidebar with EQ bars
+    - Optimistic like/unlike with rollback on API failure
+    - Admin panel restyled — stat cards moved off the purple gradient to surface
+      cards with accent radial glow; log levels now use the new palette
+
+    Mobile App Improvements:
+    - All detail screens (Liked Songs, Most Listened, Statistics, Liked Albums) now
+      match the redesign with hero icons, accent rank chips, and the floating
+      mini-player bar
+    - Settings → Sync now runs the full four-step recovery (library + liked songs +
+      liked albums + playback stats) so a freshly installed app can rebuild from
+      the server in one tap
+
+    Bug Fixes:
+    - Fixed broken /playback-stats/* endpoint URLs in the client (were missing the
+      /api/ prefix — server stats were silently 404'ing every 5 minutes)
+    - Fixed PlaybackStat.fromJson crashing on null lastPlayedAt (server uses
+      lastPlayedAt, client expected lastPlayed)
+    - Replaced destructive POST sync for liked songs/albums with safe GET-based
+      restoreFromServer so a fresh local cache no longer wipes server-side likes
+    - Fixed pre-existing compile error in download_service.dart (File.length()
+      called on a bool)
+
+    Infrastructure:
+    - Published Docker image maksimab/music-server:1.5.0
+
   Version 1.4.6 - Repeat Button Cleanup
 
     - Removed tooltip text from repeat button
