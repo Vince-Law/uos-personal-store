@@ -3,7 +3,7 @@ id: wild-gablota-music-server
 category: media
 name: Music Stream
 icon: https://iili.io/fEa1mue.png
-version: "1.5.1"
+version: "1.6.0"
 
 tagline: Self-hosted music library streaming server
 description: >-
@@ -40,6 +40,38 @@ path: ""
 defaultUsername: admin
 defaultPassword: admin123
 releaseNotes: >-
+  Version 1.6.0 - Multi-User Uploads + Personal Libraries
+
+    Major Features:
+    - Per-user "My Library" model: each user has a personal collection of
+      albums. Existing single-user content is auto-assigned to the admin's
+      library on first boot; nothing visible changes for existing setups
+    - Web upload UI: drag-drop audio files or whole album folders, server
+      scans tags, creates a pending upload entry awaiting admin review
+    - Admin review console at /review.html — 3-pane UI (pending queue /
+      grouped tree / bulk-edit panel) with per-track and bulk metadata
+      editing before approval
+    - On approve: cleaned tags are written back to the audio files via
+      ffmpeg (stream copy, no re-encode), files are moved into
+      library/<Artist>/<Album>/, Song rows are created with normalized
+      artist/album dedup, and the album is added to the uploader's library
+    - New Browse view in the web player to discover everything on the
+      server with one-click "Add to My Library"
+    - In-app notification center (bell badge) for upload approved/rejected
+      events, polled every 30s
+
+    Backend:
+    - New tables: UserLibrary, UserPrivacy, PendingUpload, PendingTrack,
+      NotificationItem (plus User.role column)
+    - New endpoints under /api/library, /api/browse, /api/uploads,
+      /api/notifications
+    - Boot migration ensures existing albums populate admin's UserLibrary
+      idempotently; safe to redeploy
+    - Text normalization service (lowercase + strip articles + collapse
+      punctuation) used to dedupe artists/albums on upload
+
+    Published Docker image maksimab/music-server:1.6.0
+
   Version 1.5.1 - Web Player Hotfix
 
     Server API:
